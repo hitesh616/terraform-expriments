@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-hello-world
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodejs-hello-world
+  template:
+    metadata:
+      labels:
+        app: nodejs-hello-world
+    spec:
+      containers:
+        - name: nodejs-hello-world
+          image: devopshitesh/nodejs-hello-world:latest  # Change this to your DockerHub username
+          ports:
+            - containerPort: 3000
